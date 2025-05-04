@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流浪地球个人终端</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0a192f;
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 导航样式 */
+        nav {
+            background-color: rgba(10, 25, 47, 0.85);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* 内容区块 */
+        section {
+            padding: 4rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 简介部分 */
+        #intro {
+            text-align: center;
+        }
+
+        /* 制作团队 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: #112240;
+            padding: 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        /* 下载区域 */
+        .download-section {
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #64ffda;
+            color: #0a192f;
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 版权声明 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #020c1b;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#intro">简介</a></li>
+            <li><a href="#team">制作团队</a></li>
+            <li><a href="#download">下载</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="intro">
+            <div>
+                <h1>流浪地球个人终端</h1>
+                <p style="margin-top: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    这是为行星发动机工作人员设计的便携式智能终端，集成通讯、导航、生命维持系统监控等核心功能。
+                    在2500年的漫长征程中，它是每位领航员最可靠的伙伴。
+                </p>
+            </div>
+        </section>
+
+        <section id="team">
+            <div>
+                <h2>制作团队</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>小不点大白</h3>
+                        <p>终端制作</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>HU创想工作室</h3>
+                        <p>网站设计</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>MOSS</h3>
+                        <p>人工智能系统</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download">
+            <div class="download-section">
+                <h2>下载客户端</h2>
+                <a href="#" class="download-btn">Windows 版本(暂未推出)</a>
+                <a href="#" class="download-btn">Android 版本</a>
+                <a href="#" class="download-btn">苹果 版本(暂未推出)</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2075 流浪地球计划联合政府</p>
+        <p>本终端仅供学习，最终解释权归终端运行团队所有</p>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
