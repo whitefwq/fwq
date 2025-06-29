@@ -12,7 +12,7 @@ function device() {
         return 'PC';
     }
 }
-/*
+
 // 使用该函数来重定向用户
 function redirectBasedOnDeviceType() {
     const deviceType = device();
@@ -25,7 +25,6 @@ function redirectBasedOnDeviceType() {
         window.location.href = '/pe';
     }
 }
-*/
 // 名人名言API
     const mingrenAPI = 'https://v.api.aa1.cn/api/api-wenan-mingrenmingyan/index.php?aa1=text';
         
