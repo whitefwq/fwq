@@ -1,61 +1,47 @@
-// 复制功能
-function copyAddress() {
-    const addressInput = document.getElementById("serverAddress");
-    addressInput.select();
-    document.execCommand("copy");
+//检测设备类型
+
+function device() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     
-    const copyBtn = document.querySelector('.copy-btn');
-    const originalText = copyBtn.innerHTML;
-    copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
-    
-    setTimeout(() => {
-        copyBtn.innerHTML = originalText;
-    }, 3000);
+    // 检查userAgent中是否包含常见的移动设备标识
+    if (/android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())) {
+        // 如果是pe 返回'pe'
+        return 'PE';
+    } else {
+        // 否则 认为是pc
+        return 'PC';
+    }
 }
-
-// 表单处理
-document.getElementById("orgRegistration")?.addEventListener("submit", function(e) {
-    e.preventDefault();
+/*
+// 使用该函数来重定向用户
+function redirectBasedOnDeviceType() {
+    const deviceType = device();
     
-    const orgName = document.getElementById("orgName").value;
-    const leaderName = document.getElementById("leaderName").value;
-    
-    setTimeout(() => {
-        alert(`感谢${leaderName}提交"${orgName}"的组织报备申请！\n我们将在24小时内通过您提供的联系方式与您联系。`);
-        this.reset();
-    }, 500);
-});
-
-// 服务器状态更新
-function updateServerStatus() {
-    const isOnline = true;
-    const statusElement = document.getElementById("serverStatus");
-    
-    statusElement.className = isOnline ? 
-        "server-status online" : 
-        "server-status offline";
+    if (deviceType === 'PC') {
+        // 如果是桌面设备，重定向到/pc
+        window.location.href = '/pc';
+    } else if (deviceType === 'PE') {
+        // 如果是移动设备，重定向到/pe
+        window.location.href = '/pe';
+    }
 }
-
-// 数字动画
-function animateValue(id, start, end, duration) {
-    const obj = document.getElementById(id);
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerHTML = Math.floor(progress * (end - start) + start);
-        if (progress < 1) window.requestAnimationFrame(step);
-    };
-    window.requestAnimationFrame(step);
+*/
+// 名人名言API
+    const mingrenAPI = 'https://v.api.aa1.cn/api/api-wenan-mingrenmingyan/index.php?aa1=text';
+        
+    // 获取名人名言
+async function fetchMingrenQuote() {
+    try {
+        const response = await fetch(mingrenAPI);
+        const data = await response.text();
+        document.getElementById('responseContent').textContent = data;
+    } catch (error) {
+        console.error('获取名人名言失败:', error);
+        document.getElementById('responseContent').textContent = '名人名言加载失败，请稍后再试';
+    }
 }
-
-// 初始化
-window.onload = function() {
-    updateServerStatus();
-    setInterval(updateServerStatus, 60000);
-    
-    animateValue("totalPlayers", 0, 5842, 2000);
-    animateValue("totalBuilds", 0, 1276, 2000);
-    animateValue("runningDays", 0, 1825, 2000);
-    animateValue("totalEvents", 0, 78, 2000);
-};
+        
+// 页面加载时获取名人名言
+window.addEventListener('DOMContentLoaded', fetchMingrenQuote);
+// 在页面加载完成后执行重定向函数
+window.onload = redirectBasedOnDeviceType;

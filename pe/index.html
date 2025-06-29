@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白色幻想</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入Google字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cubes"></i> 白色幻想</h1>
+            <p>一个充满无限可能的服务器</p>
+        </header>
+        
+        <!-- 导航栏 -->
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> 服务器介绍</a></li>
+                <li><a href="#rules"><i class="fas fa-book"></i> 服务器规则</a></li>
+                <!--<li><a href="#gallery"><i class="fas fa-images"></i> 玩家作品</a></li-->
+                <li><a href="#contact"><i class="fas fa-envelope"></i> 联系我们</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 公告栏 -->
+        <div class="card announcement">
+            <h3><i class="fas fa-bullhorn"></i> 最新公告</h3>
+            <p><strong>活动预告：</strong> 近期没有活动 </p>
+        </div>
+        
+        <!-- 服务器简介 -->
+        <div class="card" id="about">
+            <h2><i class="fas fa-server"></i> 服务器简介</h2>
+            <p>欢迎来到 White Fantasy Server 这是一个成立于2025年的服务器,并且面向所有人开放</p>
+            
+            <h3>Minecraft服务器特色：</h3>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>插件生存</h3>
+                    <p>有趣的生存体验，少量平衡性插件，保留Minecraft较原始的游戏乐趣。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>大型活动</h3>
+                    <p>不定期举办各种活动,PVP比赛,跑酷等等,奖品丰厚</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-coins"></i></div>
+                    <h3>经济系统</h3>
+                    <p>比较完善的玩家交易与经济体系，支持商店等功能。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>安全稳定</h3>
+                    <p>24/7不间断运行，专业服务器硬件，多重备份保障数据安全。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>友好社区</h3>
+                    <p>活跃的管理团队和友好的玩家群体，新人友好，互帮互助。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-map"></i></div>
+                    <h3>自定义地图</h3>
+                    <p>精心设计的出生点区域和多个特色地形，探索永无止境。</p>
+                </div>
+            <h3>Terraria服务器特色：</h3>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>未开放</h3>
+                    <p>请耐心等待</p>
+                </div>
+            </div>
+            
+            <h3>服务器技术信息：</h3>
+            <ul>
+                <li><strong>运行时间：</strong> 全天24h</li>
+                <li><strong>服务器位置：</strong>中华人民共和国-江苏省-宿迁市-七星云bgp网络数据中心</li>
+                <li><strong>硬件配置：</strong> Intel(R) Xeon(R) CPU E5-2680v4, 4GB RAM, NVMe SSD</li>
+            </ul>
+        </div>
+        
+        <!-- 服务器状态和地址 -->
+        <div class="server-address-box">
+            <div class="address-container">
+                <h2><i class="fas fa-plug"></i> 加入Minecraft服务器</h2>
+                <p>复制下方服务器地址，在游戏中添加服务器即可加入我们的冒险</p>
+                <input type="text" class="address-input" id="serverAddress" value="om.rainplay.cn:20886" readonly>
+                <button class="copy-btn" onclick="copyAddress()"><i class="far fa-copy"></i> 复制地址</button>
+                <div class="server-status online" id="serverStatus">
+                    <i class="fas fa-circle"></i> 服务器在线
+                </div>
+                <!--
+                    "server-status online"=在线
+                    "server-status offline"=不在线
+                -->
+                <p>支持版本：1.14-1.21 | 服务器类型：java</p>
+            </div>
+        </div>
+        <div class="server-address-box">
+            <div class="address-container">
+                <h2><i class="fas fa-plug"></i> 加入Terraria服务器</h2>
+                <p>复制下方服务器地址，在游戏中添加服务器即可加入我们的冒险(端口:****)</p>
+                <input type="text" class="address-input" id="serverAddress" value="未开放" readonly>
+                <button class="copy-btn" onclick="copyAddress()"><i class="far fa-copy"></i> 复制地址</button>
+                <div class="server-status offline" id="serverStatus">
+                    <i class="fas fa-circle"></i> 服务器不在线
+                </div>
+                <!--
+                    "server-status online"=在线
+                    "server-status offline"=不在线
+                -->
+                <p>支持版本：未开放 | 服务器类型：Terraria</p>
+            </div>
+        </div>
+        
+        <!-- 玩家统计数据 -->
+        <div class="card">
+            <h2><i class="fas fa-chart-bar"></i> 服务器数据</h2>
+            <div class="player-stats">
+                <div class="stat-item">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" id="totalPlayers">30+</div>
+                    <p>注册玩家</p>
+                </div>
+                <div class="stat-item">
+                    <div class="feature-icon"><i class="fas fa-home"></i></div>
+                    <div class="stat-number" id="totalBuilds">30+</div>
+                    <p>玩家建筑(详细看群聊)</p>
+                </div>
+                <div class="stat-item">
+                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="stat-number" id="runningDays">10+</div>
+                    <p>运行天数(详细看群聊)</p>
+                </div>
+                <div class="stat-item">
+                    <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-number" id="totalEvents">近期没有活动</div>
+                    <p>举办活动(详细看群聊)</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 组织报备
+        <div class="card" id="registration">
+            <h2><i class="fas fa-file-signature"></i> 组织/团队报备(仅供模拟暂未开放)</h2>
+            <p>如果您是团队或组织，希望在我们服务器举办活动或建立基地，请填写以下表格进行报备。通过报备的组织将获得专属领地标志和公告板展示。</p>
+            
+            <form id="orgRegistration">
+                <div class="form-group">
+                    <label for="orgName"><i class="fas fa-flag"></i> 组织名称：</label>
+                    <input type="text" id="orgName" name="orgName" placeholder="例如：方块建筑团" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="leaderName"><i class="fas fa-crown"></i> 负责人游戏ID：</label>
+                    <input type="text" id="leaderName" name="leaderName" placeholder="您的游戏用户名" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="memberCount"><i class="fas fa-user-friends"></i> 预计成员人数：</label>
+                    <input type="number" id="memberCount" name="memberCount" min="2" placeholder="最少2人" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="orgType"><i class="fas fa-tags"></i> 组织类型：</label>
+                    <select id="orgType" name="orgType" required>
+                        <option value="">-- 请选择组织类型 --</option>
+                        <option value="build">建筑团队</option>
+                        <option value="pvp">PVP团队</option>
+                        <option value="trade">个人组织</option>
+                        <option value="event">活动召开</option>
+                        <option value="other">其他类型</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="purpose"><i class="fas fa-bullseye"></i> 组织目的/活动内容：</label>
+                    <textarea id="purpose" name="purpose" placeholder="请详细描述您的组织目的或计划举办的活动内容..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact"><i class="fas fa-envelope"></i> 联系方式（QQ/微信/邮箱）：</label>
+                    <input type="text" id="contact" name="contact" placeholder="用于管理员与您联系" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="agreement">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        我已阅读并同意<a href="#" style="color: var(--secondary-color);">《服务器组织管理规定》</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> 提交报备申请</button>
+            </form>
+        </div> -->
+        
+        <!-- 服务器规则 -->
+        <div class="card" id="rules">
+            <h2><i class="fas fa-gavel"></i> 服务器规则</h2>
+            <p>为了维护良好的游戏环境，请所有玩家遵守以下规则：</p>
+            
+            <h3>基本规则：</h3>
+            <ol>
+                <li>禁止使用任何形式的作弊软件或漏洞</li>
+                <li>禁止恶意破坏他人建筑或财产</li>
+                <li>禁止在公共频道发布广告或垃圾信息</li>
+                <li>禁止使用侮辱性、歧视性语言</li>
+                <li>禁止利用游戏漏洞获取不正当利益</li>
+            </ol>
+            <!--
+            <h3>领地规则：</h3>
+            <ul>
+                <li>禁止恶意圈地</li>
+                <li>使用land领地系统</li>
+                <li>我们不会收回你的所有领地，除非封号</li>
+            </ul>
+            -->
+            <h3>经济规则：</h3>
+            <ul>
+                <li>禁止任何形式的现实货币交易</li>
+                <li>玩家交易需明码标价，禁止欺诈</li>
+                <li>玩家商店物品需如实描述</li>
+            </ul>
+            
+            <p>违反规则者将视情节轻重受到警告、禁言、封禁等处罚。</p>
+        </div>
+        
+        <!-- 联系信息 -->
+        <div class="card" id="contact">
+            <h2><i class="fas fa-headset"></i> 联系我们</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fab fa-qq"></i></div>
+                    <h3>QQ群</h3>
+                    <p>加入我们的官方QQ群：731124137</p>
+                    <p>获取最新资讯和玩家帮助</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fab fa-discord"></i></div>
+                    <h3>Discord</h3>
+                    <p>未建立Discord群组</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>电子邮件</h3>
+                    <p>管理员邮箱：HUYouran_2025@hotmail.com</p>
+                    <p>管理员邮箱：rpg636zjhi@outlook.com</p>
+                    <p>用于正式沟通和投诉</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer>
+            <div class="social-links">
+                <!--没意义的各种网站图标 以后可能有用?-->
+                <a href="#"><i class="fab fa-qq"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-bilibili"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+            <p>© 2024-2025 White Fantasy Server 版权所有</p>
+            <p><small>本服务器与Mojang Studios没有官方关联。"Minecraft"是Mojang Synergies AB的注册商标</small></p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!-- 哪个傻逼用ai写的代码，还不分css 和 js 生怕项目好维护？ -->
