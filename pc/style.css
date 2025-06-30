@@ -1,0 +1,31 @@
+.jumbotron-background {
+    background-image: url(./img/computer-game-2873192_1920-progressive.jpg);
+    background-color: #BCABBD;
+}
+.page-navbar {
+    height: 50px;
+}
+.navbar-button {
+    height: 100%;
+}
+.hover-white:hover {
+    background-color: #ffffff33;
+}
+.minecraft-background {
+    background-image: url(./img/minecraft-2053882_1920-progressive.jpg);
+    background-color: #619DCF;
+}
+.background-size-cover {
+    background-size: cover;
+    background-position: center;
+}
+.shadow-black {
+    text-shadow: 2px 2px 2px black;
+}
+.illustration {
+    background-image: url(./img/steve.png), url(./img/spider.png);
+    background-repeat: no-repeat;
+    background-position: right bottom, right top;
+    background-attachment: scroll;
+    background-size: 50%, 18%;
+}
